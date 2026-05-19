@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>TikTok Auth</title>
+</head>
+<body>
+<script>
+  const params = new URLSearchParams(window.location.search);
+  const code = params.get("code");
+
+  fetch("https://n8n.omaritanee.club/webhook/tiktok-auth", {
+    method: "POST",
+    headers: {"Content-Type": "application/json"},
+    body: JSON.stringify({ code })
+  });
+
+  document.body.innerHTML = "Authentication complete. You can close this window.";
+</script>
+</body>
+</html>
